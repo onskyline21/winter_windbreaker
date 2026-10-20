@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>동계 트레이닝탑 1차 후보</title>
+<title>동계 트레이닝탑 2차 투표 후보(선호 디자인 1개 선택)</title>
 <style>
   :root{
     --nav-h: 56px;
@@ -47,6 +47,13 @@
   nav a:active, nav a:hover{
     background:#3a3a3c;
   }
+  nav a.disabled{
+    color:#777;
+    pointer-events:none;
+    cursor:not-allowed;
+    text-decoration: line-through;
+    background:#262626;
+  }
 
   h1{
     text-align:center;
@@ -64,11 +71,29 @@
     margin: 0 auto;
   }
   .item{
+    position:relative;
     background:#fff;
     border-radius:8px;
     overflow:hidden;
     box-shadow: 0 1px 4px rgba(0,0,0,0.12);
     scroll-margin-top: calc(var(--nav-h) + 8px); /* 앵커 이동 시 네비에 가리지 않도록 */
+  }
+  .item.rejected img{
+    cursor:not-allowed;
+  }
+  .item .reject-overlay{
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.7);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 52px;
+    font-weight:800;
+    letter-spacing: 4px;
+    z-index: 5;
+    pointer-events: all; /* 클릭을 가로채 아래 이미지 클릭을 막음 */
   }
   .item img{
     display:block;
@@ -157,34 +182,36 @@
 <body>
 
 <nav id="top">
-  <a href="#item01">01번 EO9268</a>
-  <a href="#item02">02번 ES1054</a>
+  <a href="#item01" class="disabled" onclick="return false;">01번 EO9268</a>
+  <a href="#item02" class="disabled" onclick="return false;">02번 ES1054</a>
   <a href="#item03">03번 FA7685</a>
   <a href="#item04">04번 HX9703</a>
-  <a href="#item05">05번 KR4709</a>
-  <a href="#item06">06번 LX3182</a>
-  <a href="#item07">07번 LX9106</a>
-  <a href="#item08">08번 OT7961</a>
-  <a href="#item09">09번 TO9926</a>
+  <a href="#item05" class="disabled" onclick="return false;">05번 KR4709</a>
+  <a href="#item06" class="disabled" onclick="return false;">06번 LX3182</a>
+  <a href="#item07" class="disabled" onclick="return false;">07번 LX9106</a>
+  <a href="#item08" class="disabled" onclick="return false;">08번 OT7961</a>
+  <a href="#item09" class="disabled" onclick="return false;">09번 TO9926</a>
   <a href="#item10">10번 TW2839</a>
   <a href="#item11">11번 TY6892</a>
   <a href="#item12">12번 UC9357</a>
   <a href="#item13">13번 UJ3270</a>
   <a href="#item14">14번 YD3829</a>
-  <a href="#item15">15번 ZT4926</a>
-  <a href="#item16">16번 ZW2305</a>
+  <a href="#item15" class="disabled" onclick="return false;">15번 ZT4926</a>
+  <a href="#item16" class="disabled" onclick="return false;">16번 ZW2305</a>
 </nav>
 
-<h1>동계 트레이닝탑 1차 후보</h1>
+<h1>동계 트레이닝탑 2차 투표 후보(선호 디자인 1개 선택)</h1>
 
 <div class="grid">
-  <div class="item" id="item01">
+  <div class="item rejected" id="item01">
     <img src="images/01_EO9268.png" alt="01번 EO9268" loading="lazy">
     <div class="label">01번 EO9268</div>
+    <div class="reject-overlay">탈락</div>
   </div>
-  <div class="item" id="item02">
+  <div class="item rejected" id="item02">
     <img src="images/02_ES1054.png" alt="02번 ES1054" loading="lazy">
     <div class="label">02번 ES1054</div>
+    <div class="reject-overlay">탈락</div>
   </div>
   <div class="item" id="item03">
     <img src="images/03_FA7685.png" alt="03번 FA7685" loading="lazy">
@@ -194,25 +221,30 @@
     <img src="images/04_HX9703.png" alt="04번 HX9703" loading="lazy">
     <div class="label">04번 HX9703</div>
   </div>
-  <div class="item" id="item05">
+  <div class="item rejected" id="item05">
     <img src="images/05_KR4709.png" alt="05번 KR4709" loading="lazy">
     <div class="label">05번 KR4709</div>
+    <div class="reject-overlay">탈락</div>
   </div>
-  <div class="item" id="item06">
+  <div class="item rejected" id="item06">
     <img src="images/06_LX3182.png" alt="06번 LX3182" loading="lazy">
     <div class="label">06번 LX3182</div>
+    <div class="reject-overlay">탈락</div>
   </div>
-  <div class="item" id="item07">
+  <div class="item rejected" id="item07">
     <img src="images/07_LX9106.png" alt="07번 LX9106" loading="lazy">
     <div class="label">07번 LX9106</div>
+    <div class="reject-overlay">탈락</div>
   </div>
-  <div class="item" id="item08">
+  <div class="item rejected" id="item08">
     <img src="images/08_OT7961.png" alt="08번 OT7961" loading="lazy">
     <div class="label">08번 OT7961</div>
+    <div class="reject-overlay">탈락</div>
   </div>
-  <div class="item" id="item09">
+  <div class="item rejected" id="item09">
     <img src="images/09_TO9926.png" alt="09번 TO9926" loading="lazy">
     <div class="label">09번 TO9926</div>
+    <div class="reject-overlay">탈락</div>
   </div>
   <div class="item" id="item10">
     <img src="images/10_TW2839.png" alt="10번 TW2839" loading="lazy">
@@ -234,13 +266,15 @@
     <img src="images/14_YD3829.png" alt="14번 YD3829" loading="lazy">
     <div class="label">14번 YD3829</div>
   </div>
-  <div class="item" id="item15">
+  <div class="item rejected" id="item15">
     <img src="images/15_ZT4926.png" alt="15번 ZT4926" loading="lazy">
     <div class="label">15번 ZT4926</div>
+    <div class="reject-overlay">탈락</div>
   </div>
-  <div class="item" id="item16">
+  <div class="item rejected" id="item16">
     <img src="images/16_ZW2305.png" alt="16번 ZW2305" loading="lazy">
     <div class="label">16번 ZW2305</div>
+    <div class="reject-overlay">탈락</div>
   </div>
 </div>
 
@@ -276,8 +310,8 @@
     document.getElementById('previewImg').src = '';
     document.body.style.overflow = '';
   }
-  // 그리드의 썸네일 이미지를 모두 클릭 가능하게 연결
-  document.querySelectorAll('.item img').forEach(function(img){
+  // 그리드의 썸네일 이미지를 모두 클릭 가능하게 연결 (탈락 항목은 제외)
+  document.querySelectorAll('.item:not(.rejected) img').forEach(function(img){
     img.addEventListener('click', function(){
       openPreview(img.getAttribute('src'), img.getAttribute('alt'));
     });
