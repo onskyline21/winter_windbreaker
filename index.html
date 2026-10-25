@@ -260,6 +260,15 @@
     font-size: 14px;
   }
   .modal-field input:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+  .modal-field select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+  }
+  .modal-field select:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
   .modal-hint {
     font-size: 11px;
     color: #99a;
@@ -386,7 +395,13 @@
     </div>
     <div class="modal-field">
       <label for="inputSize">사이즈</label>
-      <input type="text" id="inputSize" placeholder="예: L, 100, 105" maxlength="20">
+      <select id="inputSize">
+        <option value="" disabled selected>사이즈를 선택하세요</option>
+        <option value="L(100)">L(100)</option>
+        <option value="XL(105)">XL(105)</option>
+        <option value="2XL(110)">2XL(110)</option>
+        <option value="3XL(115)">3XL(115)</option>
+      </select>
     </div>
     <div class="modal-field">
       <label for="inputPw">비밀번호 (숫자 4자리)</label>
