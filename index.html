@@ -409,7 +409,7 @@
       dir: 'assets/layers/FA7685',
       landing: 'assets/FA7685_base.png',
       de: 'De_01_00_FA7685.png',
-      sets: ['01', '02'],
+      sets: ['01', '02', '03'],
       hasSlot06: false,
     },
     HX9703: {
@@ -584,7 +584,9 @@
   // 보안을 위해 GitHub 토큰은 이 코드에 두지 않는다. 대신 Cloudflare Worker가
   // 토큰을 비공개로 보관하고, 이 페이지는 그 Worker의 URL만 호출한다.
   // 아래 주소를 본인이 배포한 Worker 주소로 바꿔야 한다.
-  const WORKER_URL = 'https://winter-windbreaker-logger.onskyline21.workers.dev';
+  // 주의: 루트 경로('/')는 Cloudflare 엣지에 예전 응답이 캐시되어 있어 실패할 수 있으므로,
+  // 캐시가 없는 하위 경로(/save)를 사용한다.
+  const WORKER_URL = 'https://winter-windbreaker-logger.onskyline21.workers.dev/save';
 
   function setModalStatus(msg, type) {
     modalStatus.textContent = msg;
